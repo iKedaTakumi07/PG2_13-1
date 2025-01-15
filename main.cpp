@@ -53,19 +53,19 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
         // リスポーン
         if (keys[DIK_R]) {
             for (int i = 0; i < 2; i++) {
-                if (enemies[i]->studentCount == 0) {
-                    enemies[i]->studentCount = 1;
+                if (Enemy::studentCount == 0) {
+                    Enemy::studentCount = 1;
                 }
             }
         }
 
         // 当たり判定
         for (int i = 0; i < 2; i++) {
-            if (enemies[i]->studentCount == 1) {
+            if (Enemy::studentCount == 1) {
                 if (player->isBulletshot) {
                     if (player->bullet->pos_.x < enemies[i]->pos_.x + enemies[i]->radius && enemies[i]->pos_.x < player->bullet->pos_.x + player->bullet->radius_) {
                         if (player->bullet->pos_.y < enemies[i]->pos_.y + enemies[i]->radius && enemies[i]->pos_.y < player->bullet->pos_.y + player->bullet->radius_) {
-                            enemies[i]->studentCount = 0;
+                            Enemy::studentCount = 0;
                         }
                     }
                 }
